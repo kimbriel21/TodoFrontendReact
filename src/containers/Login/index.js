@@ -1,7 +1,6 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import {connect} from 'react-redux';
 import Paper from '@material-ui/core/Paper';
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField/TextField";
@@ -37,7 +36,6 @@ class Login extends React.Component{
     };
 
     onLogin = () =>{
-        console.log({...this.state});
 
         let req_data = {};
 
@@ -51,7 +49,7 @@ class Login extends React.Component{
         axios.post('/oauth/token', req_data).then(res =>
         {
             localStorage.setItem("token", "Bearer "+ res.data.access_token);
-            this.props.history.push('/members');
+            this.props.history.push('/todo');
             window.location.reload();
         })
         .catch(err =>
@@ -62,9 +60,6 @@ class Login extends React.Component{
 
         });
     };
-
-
-
 
     render (){
         return(
@@ -109,26 +104,10 @@ class Login extends React.Component{
                             </Button>
                         </div>
                     </div>
-
                 </Paper>
-
-
             </div>
         )
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        ctr : state.ctr.counter,
-    };
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onIncrementCounter : () => dispatch({type : 'INCREMENT'}),
-        onIncrementCounterWithValue : (val) => dispatch({type : 'INCREMENT_VALUE', value: val})
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Login));
+export default withStyles(styles)(Login);

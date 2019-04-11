@@ -5,7 +5,7 @@ const instance = axios.create({
 });
 
 // instance.defaults.baseURL = process.env.VUE_APP_URL || process.env.apiUrl || 'NO AUTHORIZATION NEEDED';
-instance.defaults.baseURL = 'http://cia_church.test/';
+instance.defaults.baseURL = 'http://exams.test/';
 instance.defaults.headers.common['Authorization'] = localStorage.getItem('token');
 instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 

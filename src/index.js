@@ -7,12 +7,10 @@ import {createStore, combineReducers} from 'redux'; //install via npm
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import counterReducter from './store/counter';
-import resultReducter from './store/results';
+import todoReducer from './store/todo';
 
 const rootReducer = combineReducers({
-    ctr: counterReducter,
-    res: resultReducter,
+    todo : todoReducer,
 });
 
 const store = createStore(rootReducer);
