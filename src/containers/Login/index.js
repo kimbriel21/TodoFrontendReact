@@ -99,9 +99,6 @@ class Login extends React.Component{
                             <Button variant="contained" color="primary" onClick={this.onLogin}>
                                 LOGIN
                             </Button>
-                            <Button style={{marginLeft : 10}} variant="contained" color="primary">
-                                REGISTER
-                            </Button>
                         </div>
                     </div>
                 </Paper>
